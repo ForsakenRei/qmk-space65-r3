@@ -35,8 +35,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_DISABLE_TIMEOUT 900000 // number of milliseconds to wait until rgb automatically turns off
 #define RGB_DISABLE_WHEN_USB_SUSPENDED 1
-
-#define HSV_L1 71, 92, 80
-#define HSV_L2 36, 100, 100
-#define HSV_L3 330, 100, 93
-#define HSV_CAP 207, 100, 73

@@ -20,4 +20,4 @@ My QMK firmware repo for Space65 R3 Cute Assassin.
 - Win Lock
 
 ## To-Do
-[ ] Numpad for right hand on layer2, navigation for left hand on layer 3
+- [ ] Win Lock indicator
