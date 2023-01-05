@@ -18,7 +18,7 @@ My QMK firmware repo for Space65 R3 Cute Assassin.
 - Adv Tap-Dance and One-shot layer/mod
 - Key Override
 - Win Lock
+- RGB Timeout
 
 ## To-Do
 - [ ] Win Lock indicator
-- [ ] RGB Timeout

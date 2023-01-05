@@ -33,5 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ONESHOT_TAP_TAGGLE 3
 #define ONESHOT_TIMEOUT 1500
 
-#define RGB_DISABLE_TIMEOUT 900000 // number of milliseconds to wait until rgb automatically turns off
+
 #define RGB_DISABLE_WHEN_USB_SUSPENDED 1
+
+#define RGBLIGHT_SLEEP  // allows us to use rgblight_suspend() and rgblight_wakeup() in keymap.c
+#define RGBLIGHT_TIMEOUT 900000
