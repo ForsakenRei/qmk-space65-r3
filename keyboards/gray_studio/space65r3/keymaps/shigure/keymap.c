@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______,                            KC_DEL,                    _______, CTL_APP,                   _______, _______, _______
     ),
     [2] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_PMNS, KC_PPLS, _______, SFT_DEL, KC_SLEP,
+        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_PMNS, KC_PPLS, SFT_DEL, SFT_DEL, KC_SLEP,
         _______,          KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_NO,   KC_PAST, KC_PSLS, _______, _______,
         _______,          KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,   KC_PENT,          _______,
         _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_P0,   KC_P0,   KC_PDOT, _______, _______,          _______, KC_MUTE,
@@ -78,6 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+
+// RGB layers
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0,2, HSV_WHITE}
 );
@@ -110,6 +112,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+
+// tap dance
 typedef enum
 { // quad function tap-dance
     TD_NONE,
@@ -285,7 +289,6 @@ void sft_reset(tap_dance_state_t *state, void *user_data)
     }
 };
 
-// Associate tap dance key with its functionality
 tap_dance_action_t tap_dance_actions[] = {
     [CAPS_LAYR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, caps_finished, caps_reset),
     [KCFN_L2] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, fn_finished, fn_reset),
@@ -297,20 +300,19 @@ void keyboard_post_init_user(void)
     { // turn on Num lock by defautl
         tap_code(KC_NUM);
     };
-    // Enable the LED layers
     rgblight_layers = my_rgb_layers;
 }
 
+//key override
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-const key_override_t alt_f12_override = ko_make_basic(MOD_BIT(KC_RCTL), KC_EQL, A(KC_F12)); // those two are for VSCode def and ref
-const key_override_t shift_f12_override = ko_make_basic(MOD_BIT(KC_RSFT), KC_EQL, S(KC_F12));
+const key_override_t alt_f12_override = ko_make_basic(MOD_BIT(KC_RCTL), KC_EQL, A(KC_F12));
+const key_override_t shift_f12_override = ko_make_basic(MOD_BIT(KC_RCTL), KC_MINS, S(KC_F12));
 
-// This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &alt_f12_override,
     &shift_f12_override,
-    NULL // Null terminate the array of overrides!
+    NULL
 };
 
 // RGB time out
