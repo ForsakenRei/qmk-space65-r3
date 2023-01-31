@@ -84,13 +84,16 @@ const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {0,2, HSV_WHITE}
 );
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,2, HSV_GOLD}
+    {0,1, HSV_GOLD},
+    {1,1, HSV_SPRINGGREEN}
 );
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,2, HSV_SPRINGGREEN}
+    {0,1, HSV_GREEN},
+    {1,1, HSV_AZURE}
 );
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,2, HSV_MAGENTA}
+    {0,1, HSV_GOLDENROD},
+    {1,1, HSV_MAGENTA}
 );
 
 const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
