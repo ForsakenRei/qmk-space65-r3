@@ -302,7 +302,7 @@ void keyboard_post_init_user(void)
     rgblight_layers = my_rgb_layers;
 }
 
-//key override
+// key override
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 const key_override_t alt_f12_override = ko_make_basic(MOD_BIT(KC_RCTL), KC_EQL, A(KC_F12));
 const key_override_t shift_f12_override = ko_make_basic(MOD_BIT(KC_RCTL), KC_MINS, S(KC_F12));
@@ -311,8 +311,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     &delete_key_override,
     &alt_f12_override,
     &shift_f12_override,
-    NULL
-};
+    NULL};
 
 // RGB time out
 static uint32_t key_timer;           // timer to track the last keyboard activity, use 32bit value and function to make longer idle time possible
@@ -320,7 +319,7 @@ static void refresh_rgb(void);       // refreshes the activity timer and RGB, in
 static void check_rgb_timeout(void); // checks if enough time has passed for RGB to timeout
 bool is_rgb_timeout = false;         // store if RGB has timed out or not in a boolean
 
-void refresh_rgb()
+void refresh_rgb(void)
 {
     key_timer = timer_read32(); // store time of last refresh
     if (is_rgb_timeout)
@@ -329,7 +328,7 @@ void refresh_rgb()
         rgblight_wakeup();
     }
 }
-void check_rgb_timeout()
+void check_rgb_timeout(void)
 {
     if (!is_rgb_timeout && timer_elapsed32(key_timer) > RGBLIGHT_TIMEOUT)
     {
