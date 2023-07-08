@@ -35,86 +35,76 @@ enum td_keycodes
     KCFN_L2,
 };
 
-#define CAP_L1  TD(CAPS_LAYR)
-#define FN_L2   TD(KCFN_L2)
+#define CAP_L1 TD(CAPS_LAYR)
+#define FN_L2 TD(KCFN_L2)
 #define RSFT_L3 TD(RSFT_LAY3)
 #define DC_MUTE C(S(KC_M)) // used for mute/unmute
 #define TSK_MGR C(S(KC_ESC))
 #define CTL_APP CTL_T(KC_APP)
-#define SERACH  G(S(KC_N))
+#define SERACH G(S(KC_N))
 #define SFT_DEL S(KC_DEL)
-
 
 bool _isWinKeyDisabled = false;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        QK_GESC, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_BSPC, KC_HOME,
-        KC_TAB,           KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
-        CAP_L1,           KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_PGDN,
-        KC_LSFT, KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_L3,          KC_UP,   KC_END,
-        KC_LCTL, KC_LGUI, KC_LALT,                            KC_SPC,                    FN_L2,   KC_RCTL,                   KC_LEFT, KC_DOWN, KC_RGHT
-    ),
+        QK_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC, KC_BSPC, KC_DEL,
+        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSLS, KC_PGUP,
+        CAP_L1, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT, KC_PGDN,
+        KC_LSFT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_UP, RSFT_L3,
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, FN_L2, KC_RCTL, KC_LEFT, KC_DOWN, KC_RGHT),
     [1] = LAYOUT(
-        KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_DEL,  KC_INS,
-        _______,          KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
-        _______,          KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
-        _______, _______, _______, _______, KC_CALC, _______, _______, SERACH,  TSK_MGR, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______,                            KC_DEL,                    _______, CTL_APP,                   _______, _______, _______
-    ),
+        KC_GRV, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_DEL, KC_DEL, KC_INS,
+        _______, KC_HOME, KC_UP, KC_END, KC_PGUP, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_PSCR,
+        _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, KC_CALC, _______, _______, SERACH, TSK_MGR, _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, KC_DEL, _______, CTL_APP, _______, _______, _______),
     [2] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_PMNS, KC_PPLS, SFT_DEL, SFT_DEL, KC_SLEP,
-        _______,          KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_NO,   KC_PAST, KC_PSLS, _______, _______,
-        _______,          KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_P1,   KC_P2,   KC_P3,   KC_NO,   KC_NO,   KC_PENT,          _______,
-        _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_P0,   KC_P0,   KC_PDOT, _______, _______,          _______, KC_MUTE,
-        _______, GUI_TOG, _______,                            _______,                   _______, _______,                   _______, _______, _______
-    ),
+        _______, _______, _______, _______, _______, _______, _______, KC_P7, KC_P8, KC_P9, KC_P0, KC_PMNS, KC_PPLS, SFT_DEL, SFT_DEL, KC_SLEP,
+        _______, KC_HOME, KC_UP, KC_END, KC_PGUP, _______, _______, KC_P4, KC_P5, KC_P6, KC_NO, KC_PAST, KC_PSLS, _______, _______,
+        _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, KC_P1, KC_P2, KC_P3, KC_NO, KC_NO, KC_PENT, _______,
+        _______, _______, _______, _______, KC_CALC, _______, _______, _______, KC_P0, KC_P0, KC_PDOT, _______, _______, _______, KC_MUTE,
+        _______, GUI_TOG, _______, _______, _______, _______, _______, _______, _______),
     [3] = LAYOUT(
-        _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MPLY, KC_MUTE, _______, _______, KC_F13,  KC_F14,  _______, _______, RGB_SAI,
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, RGB_SAD,
-        _______,          _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, EE_CLR,           RGB_HUI,
-        _______, _______, _______, _______, _______, _______, _______, _______, DC_MUTE, _______, _______, _______, _______,          _______, RGB_HUD,
-        _______, _______, _______,                            _______,                   TO(0),   _______,                   RGB_VAD, _______, RGB_VAI
-    ),
+        _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MPLY, KC_MUTE, _______, _______, KC_F13, KC_F14, _______, _______, RGB_SAI,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT, RGB_SAD,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, EE_CLR, RGB_HUI,
+        _______, _______, _______, _______, _______, _______, _______, _______, DC_MUTE, _______, _______, _______, _______, _______, RGB_HUD,
+        _______, _______, _______, _______, TO(0), _______, RGB_VAD, _______, RGB_VAI),
 };
-
 
 // RGB layers
 const rgblight_segment_t PROGMEM my_capslock_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,2, HSV_WHITE}
-);
+    {0, 2, HSV_WHITE});
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,1, HSV_GOLD},
-    {1,1, HSV_SPRINGGREEN}
-);
+    {0, 1, HSV_GOLD},
+    {1, 1, HSV_SPRINGGREEN});
 const rgblight_segment_t PROGMEM my_layer2_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,1, HSV_GREEN},
-    {1,1, HSV_AZURE}
-);
+    {0, 1, HSV_GREEN},
+    {1, 1, HSV_AZURE});
 const rgblight_segment_t PROGMEM my_layer3_layer[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0,1, HSV_GOLDENROD},
-    {1,1, HSV_MAGENTA}
-);
+    {0, 1, HSV_GOLDENROD},
+    {1, 1, HSV_MAGENTA});
 
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     my_capslock_layer,
     my_layer1_layer,
     my_layer2_layer,
-    my_layer3_layer
-);
+    my_layer3_layer);
 
-bool led_update_user(led_t led_state) {
+bool led_update_user(led_t led_state)
+{
     rgblight_set_layer_state(0, led_state.caps_lock);
     return true;
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
+layer_state_t layer_state_set_user(layer_state_t state)
+{
     rgblight_set_layer_state(1, layer_state_cmp(state, _L1));
     rgblight_set_layer_state(2, layer_state_cmp(state, _L2));
     rgblight_set_layer_state(3, layer_state_cmp(state, _L3));
     return state;
 }
-
 
 // tap dance
 typedef enum
@@ -126,7 +116,8 @@ typedef enum
     TD_DOUBLE_TAP
 } td_state_t;
 
-typedef struct {
+typedef struct
+{
     bool is_press_action;
     td_state_t state;
 } td_tap_t;
@@ -159,16 +150,13 @@ td_state_t cur_dance(tap_dance_state_t *state)
 
 static td_tap_t caps_tap_state = {
     .is_press_action = true,
-    .state = TD_NONE
-};
+    .state = TD_NONE};
 static td_tap_t fn_tap_state = {
     .is_press_action = true,
-    .state = TD_NONE
-};
+    .state = TD_NONE};
 static td_tap_t sft_tap_state = {
     .is_press_action = true,
-    .state = TD_NONE
-};
+    .state = TD_NONE};
 
 // Functions that control what our tap dance key does
 void caps_finished(tap_dance_state_t *state, void *user_data)
@@ -261,7 +249,7 @@ void sft_finished(tap_dance_state_t *state, void *user_data)
         clear_oneshot_layer_state(ONESHOT_PRESSED);
         break;
     case TD_SINGLE_HOLD:
-        register_code(KC_RSFT);
+        layer_on(_L3);
         break;
     case TD_DOUBLE_TAP:
         if (layer_state_is(_L3))
@@ -285,7 +273,7 @@ void sft_reset(tap_dance_state_t *state, void *user_data)
     // case TD_SINGLE_TAP:
     //   unregister_code(KC_RSFT);
     case TD_SINGLE_HOLD:
-        unregister_code(KC_RSFT);
+        layer_off(_L3);
         break;
     default:
         break;
