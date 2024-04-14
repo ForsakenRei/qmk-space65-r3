@@ -18,8 +18,33 @@
     "max_brightness": 200,
     "sleep": true,
     "animations": {
-      "rainbow_swirl": true
+      "breathing": false,
+      "rainbow_mood": false,
+      "rainbow_swirl": true,
+      "snake": false,
+      "knight": false,
+      "christmas": false,
+      "static_gradient": false,
+      "rgb_test": false,
+      "alternating": false,
+      "twinkle": false
+    },
+    "default": {
+      "animation": "rainbow_swirl"
+    },
+    "layers": {
+      "enabled": true,
+      "override_rgb": true
     }
+  },
+  "features": {
+    "bootmagic": true,
+    "command": false,
+    "console": false,
+    "extrakey": true,
+    "mousekey": true,
+    "nkro": false,
+    "rgblight": true
   },
   "matrix_pins": {
     "cols": [

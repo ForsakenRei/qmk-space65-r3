@@ -24,4 +24,3 @@ My QMK firmware repo for Space65 R3 Cute Assassin.
 - [ ] Win Lock indicator
 
 ## Known Issue
-Deadlock on system reboot.
