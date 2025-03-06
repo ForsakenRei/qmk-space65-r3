@@ -4,7 +4,7 @@ My QMK firmware repo for Space65 R3 Cute Assassin.
 
 ## Flash Guide
 
-1. Hold `ESC` and plug the board in
+1. Hold `ESC` and plug the board in, or press `\` on layer 3.
 2. Flash the firmware using QMK Toolbox
 
 ### Or use QMK CLI to flash
